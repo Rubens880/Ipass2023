@@ -1,0 +1,67 @@
+
+Body {
+    font-family: Calibri, Helvetica, sans-serif;
+    background-color: rgb(82, 142, 162);
+    background-image: url('/src/main/webapp/images/agendabackgroundimage.png');
+    background-repeat: no-repeat;
+
+  }
+button { 
+    background-color: #4CAF50;  
+    width: 20%;
+    color: white;
+    padding: 15px;   
+    margin: 10px 0px; 
+    border: none; 
+    cursor: pointer; 
+    } 
+
+button:hover {
+    background-color: darkgreen;
+}
+form { 
+    border: 3px solid;
+    background: whitesmoke; 
+    margin-top: 10%;
+    margin-left: 35%;
+    margin-right: 35%;
+    padding: 10px;
+    border-color: black;
+    border-radius: 10px;
+   } 
+
+input[type=text], input[type=password] { 
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    }
+
+.weatherDiv {
+    background-color: whitesmoke;
+    border: 3px solid;
+    margin-left: 80%;
+    height: 100px;
+    border-radius: 10px;
+    
+    
+}
+
+.weatherImg {
+    margin-top: 8%;
+    margin-left: 10px;
+    display: flex;
+    font-weight: bold;
+}
+
+.weatherImg p {
+    margin-left: 80px;
+} 
+
+/* .weatherDiv p {
+    padding-top: 8%;
+    font-weight: bold;
+} */
