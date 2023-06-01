@@ -26,6 +26,7 @@ public class AppointmentResource {
         String appointmentTitle = jsonObject.getString("title");
         String appointmentDescription = jsonObject.getString("description");
         String appointmentLocation = jsonObject.getString("location");
+        //Moet nog gefixt worden!
 //        String appoinmentDate = jsonObject.getString("date");
 //        String startTime = jsonObject.getString("startTime");
 //        String endTime = jsonObject.getString("endTime");
