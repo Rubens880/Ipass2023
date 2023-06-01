@@ -37,6 +37,8 @@ public class AppointmentResource {
         return Response.ok().build();
     }
 
+
+    //Vraag alle afspraken op van de Agenda
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @RolesAllowed("user")
