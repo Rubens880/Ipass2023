@@ -5,7 +5,6 @@ async function getWeatherData() {
         }});
 
 }
-
 async function getTemp() {
     let response = await getWeatherData();
     let data = await response.json();
@@ -15,5 +14,35 @@ async function getTemp() {
     return temp;
 }
 
+function login() {
+    console.log("nu login")
+    let formData = new FormData(document.querySelector("#loginForm"));
+    let jsonRequestBody = {}
+    formData.forEach((key, value) => jsonRequestBody[value] = key);
+    console.log(jsonRequestBody);
+    fetch("http://localhost:8080/restservices/authentication", {method: "POST",
+        headers: {
+            'Content-Type': 'application/json'},
+        body: JSON.stringify(jsonRequestBody)})
+        .then(function (response) {
+            console.log(response)
+            if (response.ok) return response.json();
+            else throw "Wrong username/password";
+        })
+        .then(myJson => {
+            window.localStorage.setItem("myJWT", myJson.JWT);
+            window.location.href = "../html/homepage.html"
+
+        })
+        .catch(error => console.log(error));
+
+}
+
 getTemp();
+
+const loginForm = document.querySelector("#loginForm");
+const loginButton = loginForm.querySelector("#loginButton");
+loginButton.addEventListener("click", login);
+
+
 

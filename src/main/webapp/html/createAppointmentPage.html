@@ -3,34 +3,34 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/src/main/webapp/css/createAppointmentPage.css">
-    <script type="text/javascript" src="" defer></script>
+    <link rel="stylesheet" href="../css/createAppointmentPage.css">
+    <script type="text/javascript" src="../javascript/createAppointment.js" defer></script>
     <title>WebAgenda Home</title>
 </head>
 
 <body>
     <nav>
         <div class="navBar">
-            <a href="/src/main/webapp/html/homepage.html">Home</a>
-            <a id="active" href="/src/main/webapp/html/createAppointmentPage.html">Maak afspraak</a>
+            <a href="../html/homepage.html">Home</a>
+            <a id="active" href="../html/createAppointmentPage.html">Maak afspraak</a>
             <a href="/src/main/webapp/html/">Maak boodschappenlijstje</a>
             <a>Download PDF</a>
-            <a id="logout" href="/src/main/webapp/html/loginPage.html">Log uit</a>
+            <a id="logout" href="../html/loginPage.html">Log uit</a>
         </div>
     </nav>
-    <div id="appointmentForm">
-        <form action="" method="post">
+    <div class="appointmentForm">
+        <form id="appointmentForm">
             <fieldset>
-                <label>Titel <input type="text"></label>
-                <label>Descriptie <textarea type="textarea"></textarea> </label>
-                <label>Locatie <input type="text"></label>
+                <label>Titel <input type="text" name="title"></label>
+                <label>Descriptie <textarea type="textarea" name="description"></textarea> </label>
+                <label>Locatie <input type="text" name="location"></label>
             </fieldset>
             <fieldset>
-                <label>Datum: <input type="date"></label>
-                <label>StartTijd: <input type="time"></label>
-                <label>EindTijd: <input type="time"></label>
+                <label>Datum: <input type="date" name="date"></label>
+                <label>StartTijd: <input type="time" name="startTime"></label>
+                <label>EindTijd: <input type="time" name="endTime"></label>
             </fieldset>
-            <button>Afspraak aanmaken</button>
+            <button id="appointmentFormButton" type="button">Afspraak aanmaken</button>
 
         </form>
 

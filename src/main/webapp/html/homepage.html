@@ -2,18 +2,20 @@
 <html lang="nl">
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="/src/main/webapp/css/homePage.css">
-        <script type="text/javascript" src="/src/main/webapp/javascript/homePage.js" defer></script>
+        <link rel="stylesheet" href="../css/homePage.css">
+        <script type="text/javascript" src="../javascript/homePage.js" defer></script>
+        <script type="text/javascript" src="../javascript/utils/logout.js" defer></script>
+        <script type="text/javascript" src="../javascript/utils/pageSecurity.js"></script>
         <title>WebAgenda Home</title>
     </head>
-    <body>
+    <body onload="checkIfLoggedIn()">
         <nav>
             <div class="navBar">
-                <a id="active" href="/src/main/webapp/html/homepage.html">Home</a>
-                <a href="/src/main/webapp/html/createAppointmentPage.html">Maak afspraak</a>
-                <a href="/src/main/webapp/html/">Maak boodschappenlijstje</a>
+                <a id="active" href="../html/homepage.html">Home</a>
+                <a href="../html/createAppointmentPage.html">Maak afspraak</a>
+                <a href="../html/">Maak boodschappenlijstje</a>
                 <a>Download PDF</a>
-                <a id="logout" href="/src/main/webapp/html/loginPage.html">Log uit</a>
+                <a id="logout" href="../html/loginpage.html">Log uit</a>
             </div>
         </nav>
         <div class="agenda">

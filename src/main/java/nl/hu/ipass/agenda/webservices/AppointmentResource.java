@@ -12,6 +12,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.io.StringReader;
+import java.util.Date;
 
 @Path("appointment")
 public class AppointmentResource {
@@ -19,7 +20,7 @@ public class AppointmentResource {
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    @RolesAllowed("user")
+    //@RolesAllowed("user")
     public Response createAppointment(String requestBody) {
         JsonReader jsonReader = Json.createReader(new StringReader(requestBody));
         JsonObject jsonObject = jsonReader.readObject();
@@ -27,14 +28,14 @@ public class AppointmentResource {
         String appointmentDescription = jsonObject.getString("description");
         String appointmentLocation = jsonObject.getString("location");
         //Moet nog gefixt worden!
-//        String appoinmentDate = jsonObject.getString("date");
-//        String startTime = jsonObject.getString("startTime");
-//        String endTime = jsonObject.getString("endTime");
-
+        String appoinmentDate = jsonObject.getString("date");
+        String startTime = jsonObject.getString("startTime");
+        String endTime = jsonObject.getString("endTime");
+        Date date = new Date();
         Appointment appointment = new Appointment(appointmentTitle,null,null,appointmentDescription,appointmentLocation);
         Agenda.getAgenda().addAppointment(appointment);
 
-        return Response.ok().build();
+        return Response.ok(appointment).build();
     }
 
 
