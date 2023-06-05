@@ -1,3 +1,5 @@
+import("service/appointmentService");
+
 const appointmentButton = document.querySelector("#appointmentFormButton");
 
 

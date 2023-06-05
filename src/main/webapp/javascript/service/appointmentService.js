@@ -1,0 +1,1 @@
+//Service doet alle calls naar backend en returned promises daarna wordend deze promises afgehandeld in de andere scripts

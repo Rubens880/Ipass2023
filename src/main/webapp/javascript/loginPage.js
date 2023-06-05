@@ -1,48 +1,37 @@
-async function getWeatherData() {
-    return await fetch("https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Nederland?unitGroup=metric&key=CBKGAU4AHNRFLCVPSBDHX5ZPG&contentType=json", {
-        "method": "GET",
-        "headers": {
-        }});
+import { UserService } from './service/UserService.js';
+import { WeatherService} from "./service/WeatherService.js";
 
-}
-async function getTemp() {
-    let response = await getWeatherData();
-    let data = await response.json();
-    console.log(data);
-    let temp = data['days']['0']['tempmax'];
-    document.getElementById('temp').innerText= temp + '°C';
-    return temp;
+const userService = new UserService();
+const weatherService = new WeatherService();
+
+//Roept de WeatherService aan om via de api data te krijgen over het weer en zet de tempmax in het veld in de agenda.
+function getTemp() {
+    let temp;
+    weatherService.getWeatherData()
+        .then(data => {
+            console.log(data);
+             temp = data['days']['0']['tempmax'];
+            document.getElementById('temp').innerText= temp + '°C';
+        })
 }
 
+// roept de login functie aan in Userservice waarin de backend wordt aangeroepen en een jwt token returned
+// Hierna wordt de jwt token opgeslagen in localStorage en user wordt doorverwezen naar de homepage.html
 function login() {
-    console.log("nu login")
-    let formData = new FormData(document.querySelector("#loginForm"));
-    let jsonRequestBody = {}
-    formData.forEach((key, value) => jsonRequestBody[value] = key);
-    console.log(jsonRequestBody);
-    fetch("http://localhost:8080/restservices/authentication", {method: "POST",
-        headers: {
-            'Content-Type': 'application/json'},
-        body: JSON.stringify(jsonRequestBody)})
-        .then(function (response) {
-            console.log(response)
-            if (response.ok) return response.json();
-            else throw "Wrong username/password";
-        })
-        .then(myJson => {
-            window.localStorage.setItem("myJWT", myJson.JWT);
-            window.location.href = "../html/homepage.html"
-
-        })
-        .catch(error => console.log(error));
-
+    userService.login().then((myJson) => {
+        window.localStorage.setItem("myJWT", myJson.JWT);
+        window.location.href = "../html/homepage.html"
+    }) .catch((error) => console.log(error));
 }
-
-getTemp();
 
 const loginForm = document.querySelector("#loginForm");
 const loginButton = loginForm.querySelector("#loginButton");
+
+// Click eventListener op login button
 loginButton.addEventListener("click", login);
+
+//Temperatuur wordt opgehaald via deze functie.
+getTemp();
 
 
 

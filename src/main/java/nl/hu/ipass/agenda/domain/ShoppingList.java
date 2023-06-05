@@ -9,7 +9,7 @@ public class ShoppingList implements Serializable {
     private Date date;
     private List<ShoppingsItem> Items;
 
-    private     Agenda agenda;
+    private Agenda agenda;
 
     public ShoppingList( String name, Date date, List<ShoppingsItem> shoppingsItems) {
         this.name = name;
