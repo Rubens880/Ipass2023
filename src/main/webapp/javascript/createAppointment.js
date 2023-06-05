@@ -1,27 +1,19 @@
-import("service/appointmentService");
+import { AppointmentService} from "./service/appointmentService.js";
 
-const appointmentButton = document.querySelector("#appointmentFormButton");
+const appointmentService = new AppointmentService()
 
 
+// Appointment Service wordt aangeroepen en daarna wordt er op basis van de response een alert gegooid met succes of niet.
 function createAppointment() {
-    console.log("nu afspraakaanmaken");
-    let formData = new FormData(document.querySelector("#appointmentForm"));
-    let jsonRequestBody = {}
-    formData.forEach((key, value) => jsonRequestBody[value] = key);
-    console.log(jsonRequestBody);
-    fetch("http://localhost:8080/restservices/appointment", {
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' +  window.localStorage.getItem("myJWT")},
-        body: JSON.stringify(jsonRequestBody)})
+    appointmentService.createAppointment()
         .then((response) => {
             if (response.ok) {
+                window.alert("Succesvol opgeslagen!");
+            } else {
+                window.alert("Er is iets fout gegaan!")
+            }
 
-                return response.json();
-            } else throw "Something went wrong!"
-        })
-        .catch((error) => console.log(error)) ;
+    });
 }
 
 
@@ -30,5 +22,5 @@ function createAppointment() {
 
 
 
-
+const appointmentButton = document.querySelector("#appointmentFormButton");
 appointmentButton.addEventListener("click", createAppointment);
