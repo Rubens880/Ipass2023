@@ -2,29 +2,29 @@
 <html lang="nl">
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="/src/main/webapp/css/loginPage.css">
-        <script type="text/javascript" src="/src/main/webapp/javascript/loginPage.js" defer></script>
+        <link rel="stylesheet" href="../css/loginPage.css">
+        <script type="module" src="../javascript/loginPage.js" defer></script>
         <title>Web Agenda</title>
     </head>
     <body>
     <div class="weatherDiv">
         <div class="weatherImg">
-            <img src="/src/main/webapp/images/pngkit_weather-icon-png_8773393.png" width="50">
+            <img src="../images/pngkit_weather-icon-png_8773393.png" width="50">
             <p style="text-align: center;" id="temp">Laden...</p>
         </div>
         <!-- <img src="/src/main/webapp/images/pngkit_weather-icon-png_8773393.png" width="10"> -->
         
     </div>
 
-    <form method="post">
+    <form id="loginForm">
         <div class="container" style="text-align: center;">
             <label><b>Email</b></label>
-            <input type="text" placeholder="Voer email in" name="uname" required>
+            <input type="text" placeholder="Voer email in" name="username" id="username" required>
 
             <label><b>Wachtwoord</b></label>
-            <input type="password" placeholder="Voer wachtwoord in" name="pass" required>
+            <input type="password" placeholder="Voer wachtwoord in" name="password" id="password" required>
 
-            <button type="submit">Login</button>
+            <button id="loginButton" type="button">Login</button>
         </div>
     </form>
 

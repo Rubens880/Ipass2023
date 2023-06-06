@@ -31,7 +31,7 @@ public class MyUser implements Principal {
 
     }
 
-
+//Controleerd of de user bestaad
     public static String validateLogin(String username, String password) {
         MyUser found = getUserByUsername(username);
 

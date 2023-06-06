@@ -9,10 +9,6 @@ public class Agenda implements Serializable {
     private List<Appointment> appointments = new ArrayList<>();
     private List<ShoppingList> shoppingLists = new ArrayList<>();
 
-    //Concept word nog gebruikt.
-    // Hashmap 1: 5 Jaar achteruit en 5 Jaar vooruit opslaan. / Hashmap2: String = Maanden van dat jaar + appointments die maand.
-    //private HashMap<String,HashMap<String,List<Appointment>>> agendaMaanden;
-
     public Agenda(){
     }
 

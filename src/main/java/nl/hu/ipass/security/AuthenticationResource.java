@@ -23,6 +23,7 @@ public class AuthenticationResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response authenticateUser(LogonRequest logonRequest) {
+        System.out.println(logonRequest.username + " " + logonRequest.password);
         try {
             String role = MyUser.validateLogin(logonRequest.username, logonRequest.password);
             if (role==null) throw new IllegalAccessException("validation failed");
