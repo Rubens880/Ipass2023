@@ -4,7 +4,7 @@ export class UserService {
 
     constructor() {
     }
-
+// Doe een POST request naar de back-end om een JWT token op te halen voor de user.
     login() {
         let formData = new FormData(document.querySelector("#loginForm"));
         let jsonRequestBody = {}

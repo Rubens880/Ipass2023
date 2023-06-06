@@ -8,7 +8,7 @@ function createAppointment() {
     appointmentService.createAppointment()
         .then((response) => {
             if (response.ok) {
-                window.alert("Succesvol opgeslagen!");
+                window.alert("Afspraak succesvol opgeslagen!”.");
             } else {
                 window.alert("Er is iets fout gegaan!")
             }
@@ -16,11 +16,6 @@ function createAppointment() {
     });
 }
 
-
-
-
-
-
-
+//Functie createAppointment wordt toegevoegd aan event click op de appointmentButton in het formulier.
 const appointmentButton = document.querySelector("#appointmentFormButton");
 appointmentButton.addEventListener("click", createAppointment);

@@ -8,6 +8,7 @@ import javax.ws.rs.ApplicationPath;
 @ApplicationPath("restservices")
 public class JerseyConfig extends ResourceConfig {
     public JerseyConfig() {
+        //Bepaald welke packages Jersey inlaad.
         packages("nl.hu.ipass.agenda.webservices, nl.hu.ipass.security");
         register(RolesAllowedDynamicFeature.class);
     }

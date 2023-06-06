@@ -13,13 +13,16 @@ import java.io.IOException;
 public class MyServletContextListener implements ServletContextListener {
 
 
+    //Functie die wordt aangeroepen bij starten van de applicatie
     @Override
     public void contextInitialized(ServletContextEvent sce) {
         System.out.println("Initializing application");
 
+        //Gebruiker wordt aangemaakt
         MyUser.createUser("Ruben", "123", "user");
         try {
-            PersistenceManager.loadWorldFromFIle();
+            //Agenda wordt opgehaald uit het fileSysteem
+            PersistenceManager.loadAgendaFromFile();
         } catch (IOException e) {
             throw new RuntimeException(e);
         } catch (ClassNotFoundException e) {
@@ -27,11 +30,13 @@ public class MyServletContextListener implements ServletContextListener {
         }
     }
 
+    //Functie die wordt aangeroepen bij het afsluiten van de applicatie
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
         System.out.println("Terminating application");
         try {
-            PersistenceManager.saveWorldToFile();
+            //Agenda wordt opgeslagen
+            PersistenceManager.saveAgendaToFile();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

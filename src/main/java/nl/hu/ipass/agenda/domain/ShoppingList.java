@@ -9,8 +9,6 @@ public class ShoppingList implements Serializable {
     private Date date;
     private List<ShoppingsItem> Items;
 
-    private Agenda agenda;
-
     public ShoppingList( String name, Date date, List<ShoppingsItem> shoppingsItems) {
         this.name = name;
         this.date = date;
@@ -29,7 +27,4 @@ public class ShoppingList implements Serializable {
         return Items;
     }
 
-    public Agenda getAgenda() {
-        return agenda;
-    }
 }

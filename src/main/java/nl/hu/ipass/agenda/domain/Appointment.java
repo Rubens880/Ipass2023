@@ -5,16 +5,17 @@ import java.util.Date;
 
 public class Appointment implements Serializable {
     private String name;
-    private Date startDate;
-    private Date endDate;
+    private Date date;
+    private String startTime;
+    private String endTime;
     private String description;
     private String location;
-    private Agenda agenda;
 
-    public Appointment( String name, Date startDate, Date endDate, String description, String location) {
+    public Appointment( String name, Date date, String startTime, String endTime, String description, String location) {
     this.name = name;
-    this.startDate = startDate;
-    this.endDate = endDate;
+    this.date = date;
+    this.startTime = startTime;
+    this.endTime = endTime;
     this.description = description;
     this.location = location;
     }
@@ -23,12 +24,16 @@ public class Appointment implements Serializable {
         return name;
     }
 
-    public Date getStartDate() {
-        return startDate;
+    public Date getDate() {
+        return date;
     }
 
-    public Date getEndDate() {
-        return endDate;
+    public String getStartTime() {
+        return startTime;
+    }
+
+    public String getEndTime() {
+        return endTime;
     }
 
     public String getDescription() {
@@ -39,19 +44,15 @@ public class Appointment implements Serializable {
         return location;
     }
 
-    public Agenda getAgenda() {
-        return agenda;
-    }
-
     @Override
     public String toString() {
         return "Appointment{" +
-                ", name='" + name + '\'' +
-                ", startDate=" + startDate +
-                ", endDate=" + endDate +
+                "name='" + name + '\'' +
+                ", date=" + date +
+                ", startTime='" + startTime + '\'' +
+                ", endTime='" + endTime + '\'' +
                 ", description='" + description + '\'' +
                 ", location='" + location + '\'' +
-                ", agenda=" + agenda +
                 '}';
     }
 }

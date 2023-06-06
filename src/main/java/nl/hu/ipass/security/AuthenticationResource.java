@@ -25,20 +25,14 @@ public class AuthenticationResource {
     public Response authenticateUser(LogonRequest logonRequest) {
         System.out.println(logonRequest.username + " " + logonRequest.password);
         try {
-            System.out.println("wordt aangeroepen1");
             String role = MyUser.validateLogin(logonRequest.username, logonRequest.password);
-            System.out.println("wordt aangeroepen2");
             if (role==null) throw new IllegalAccessException("validation failed");
-            System.out.println("wordt aangeroepen3");
             String token = createToken(logonRequest.username, role);
-            System.out.println("wordt aangeroepen4");
             return Response.ok(Map.of("JWT", token)).build();
         }catch (IllegalAccessException e) {
             e.printStackTrace();
-            System.out.println("wordt aangeroepen5");
 
         }
-        System.out.println("wordt aangeroepen6");
         return Response.status(Response.Status.UNAUTHORIZED).build();
 
     }

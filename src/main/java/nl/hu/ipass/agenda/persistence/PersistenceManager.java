@@ -10,7 +10,8 @@ import java.nio.file.Path;
 
 public class PersistenceManager {
 
-    public static void loadWorldFromFIle() throws IOException, ClassNotFoundException {
+    //Laad Agenda object uit de homeDirectory
+    public static void loadAgendaFromFile() throws IOException, ClassNotFoundException {
         Path homeDirectory = Path.of("/home");
         Path worldStorage = Path.of("/home/agenda.obj");
         if (!Files.exists(worldStorage)) {
@@ -26,7 +27,8 @@ public class PersistenceManager {
 
     }
 
-    public static void saveWorldToFile() throws IOException {
+    //Slaat agenda op in de /home directory
+    public static void saveAgendaToFile() throws IOException {
         Path homeDirectory = Path.of("/home");
         if (!Files.exists(homeDirectory)) {
             Files.createDirectory(homeDirectory);
