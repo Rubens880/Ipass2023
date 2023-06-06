@@ -32,9 +32,9 @@ public class AppointmentResource {
 
         //Moet nog gefixt worden!
         String appoinmentDate1 = jsonObject.getString("date");
+        //Maakt nu een timestamp eventueel omzetten naar 2 aparte date opdrachten
         SimpleDateFormat jsonDateFormat = new SimpleDateFormat("yyyy-mm-dd");
         Date appointmentDate = jsonDateFormat.parse(appoinmentDate1);
-
         String startTime = jsonObject.getString("startTime");
 
         String endTime = jsonObject.getString("endTime");
