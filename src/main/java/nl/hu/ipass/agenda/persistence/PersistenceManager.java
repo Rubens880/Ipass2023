@@ -20,8 +20,10 @@ public class PersistenceManager {
 
         InputStream is = Files.newInputStream(worldStorage);
         ObjectInputStream ois = new ObjectInputStream(is);
-        Agenda world = (Agenda) ois.readObject();
-        Agenda.setMy_agenda(world);
+        Agenda agenda = (Agenda) ois.readObject();
+        Agenda.setMy_agenda(agenda);
+
+
         is.close();
         ois.close();
 

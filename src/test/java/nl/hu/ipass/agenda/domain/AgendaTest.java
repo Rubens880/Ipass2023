@@ -21,7 +21,7 @@ class AgendaTest {
     @Test
     @DisplayName("Voeg appointment toe aan agenda")
     public void addAppointmentTest() {
-        Appointment appointment = new Appointment("Test Appointment",new Date(),"12:12","13:13","Test desc", "Tiel");
+        Appointment appointment = new Appointment("Test Appointment", null,"12:12","13:13","Test desc", "Tiel");
         agenda.addAppointment(appointment);
         assertEquals(true, agenda.getAppointments().contains(appointment));
 
@@ -30,8 +30,8 @@ class AgendaTest {
     @Test
     @DisplayName("Voeg meerdere appointments toe en check lengte")
     public void appointmentsTestLength() {
-        Appointment appointment = new Appointment("Test Appointment",new Date(),"12:12","13:13","Test desc", "Tiel");
-        Appointment appointment1 = new Appointment("Test Appointment",new Date(),"12:12","13:13","Test desc", "Tiel");
+        Appointment appointment = new Appointment("Test Appointment", null,"12:12","13:13","Test desc", "Tiel");
+        Appointment appointment1 = new Appointment("Test Appointment", null,"12:12","13:13","Test desc", "Tiel");
         agenda.addAppointment(appointment);
         agenda.addAppointment(appointment1);
         assertEquals(2, agenda.getAppointments().size());

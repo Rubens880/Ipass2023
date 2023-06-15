@@ -8,7 +8,11 @@ function createAppointment() {
     appointmentService.createAppointment()
         .then((response) => {
             if (response.ok) {
-                window.alert("Afspraak succesvol opgeslagen!”.");
+                console.log(response.json())
+                window.alert("Afspraak succesvol opgeslagen!");
+                let allInputs = document.querySelectorAll("input");
+                allInputs.forEach((input) => {input.value = '';})
+                document.querySelector("textarea").value = '';
             } else {
                 window.alert("Er is iets fout gegaan!")
             }
