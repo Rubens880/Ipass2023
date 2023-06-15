@@ -21,7 +21,7 @@ export class AppointmentService {
             })
             .catch((error) => console.log(error)) ;
     }
-
+    // Alle appointments wordt opgehaald via een get method.
     loadAppointments() {
         return fetch("http://localhost:8080/restservices/appointment", {
             method: "GET",

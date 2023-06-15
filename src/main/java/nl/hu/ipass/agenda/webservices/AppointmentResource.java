@@ -38,6 +38,7 @@ public class AppointmentResource {
 
         String startTime = jsonObject.getString("startTime");
         String endTime = jsonObject.getString("endTime");
+        //Controle of startTijd voor eindTijd ligt
         if (!LocalTime.parse(startTime).isBefore(LocalTime.parse(endTime))) {
             return Response.status(Response.Status.CONFLICT).build();
         }

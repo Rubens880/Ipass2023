@@ -4,9 +4,9 @@ import { AppointmentService} from "./service/appointmentService.js";
 const appointmentService = new AppointmentService()
 
 let appointments = [];
-
+//Haalt op hoeveel dagen in die maand zitten
 const daysInMonth = (year, month) => new Date(year, month, 0).getDate();
-
+//Haalt op welke naam die bepaalde dag heeft
 function getDayName(dayNumber) {
     let day;
     switch (dayNumber) {
@@ -26,7 +26,7 @@ function getDayName(dayNumber) {
             return day = "Zaterdag";
     }
 }
-
+//Haalt op welke maand naam het is.
 function getMonthName(monthNumber) {
     let monthName;
     switch (monthNumber) {
@@ -56,7 +56,7 @@ function getMonthName(monthNumber) {
             return monthName = "December";
     }
 }
-
+//haalt op welk maandNummer het is bij maandnaam
 function getMonthNumberByName(monthName) {
     let monthNumber;
     switch (monthName) {
@@ -88,7 +88,7 @@ function getMonthNumberByName(monthName) {
 
 }
 
-
+//laad alle appointments in en zet default values
 function load() {
     const date = new Date();
     document.querySelector("#selectedMonth").value = getMonthName(date.getMonth());
@@ -102,7 +102,7 @@ function load() {
             render();
     })
 }
-
+//render functie per agenda dag die gemaakt wordt en wordt ingevuld. Returned een element
 function renderTemplate(dayNumber, dayName , year, month, appointments) {
     const template = document.querySelector("#day-Template");
     //console.log(appointments);
@@ -127,7 +127,8 @@ function renderTemplate(dayNumber, dayName , year, month, appointments) {
     })
     return clone;
 }
-
+//Render functie die de agenda maakt met daarin de appointments en alles ingevuld
+//Haalt ook oude agenda dagen eruit
 function render() {
     let Articles = document.querySelector("#renderArticles");
     while (Articles.firstChild) {
@@ -157,6 +158,7 @@ function render() {
     }
 }
 
+//Render functie die het dialog opent met de appointment informatie.
 function renderAppointmentDialog() {
 
     const dialog = document.querySelector("#appointment-Info-Dialog")
@@ -180,7 +182,7 @@ function renderAppointmentDialog() {
 load();
 
 
-
+//Eventlisteners
 document.querySelector("#selectedMonth").addEventListener("change", render);
 document.querySelector("#selectedYear").addEventListener("change", render);
 document.querySelector("#dialog-CloseButton").addEventListener("click", renderAppointmentDialog);
