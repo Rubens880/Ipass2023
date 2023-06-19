@@ -8,7 +8,7 @@ export class AppointmentService {
         formData.forEach((key, value) => jsonRequestBody[value] = key);
         console.log(jsonRequestBody);
         console.log("----");
-        return fetch("http://localhost:8080/restservices/appointment", {
+        return fetch("/restservices/appointment", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
@@ -23,7 +23,7 @@ export class AppointmentService {
     }
     // Alle appointments wordt opgehaald via een get method.
     loadAppointments() {
-        return fetch("http://localhost:8080/restservices/appointment", {
+        return fetch("/restservices/appointment", {
             method: "GET",
             headers: {
                 'Authorization': 'Bearer ' + window.localStorage.getItem("myJWT")
