@@ -1,18 +1,61 @@
 body {
-    background-color: cornsilk;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 0;
+    padding: 0;
     font-family: Arial, Helvetica, sans-serif;
     background-color: rgb(82, 142, 162);
 }
+main {
+    margin-top: 60px;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 10px;
+    justify-items: center;
+}
+
+.grid-item {
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.day-Article {
+    background-color: white;
+    width: 10rem;
+    height: 15rem;
+    text-align: center;
+    border: 2px black solid;
+}
+
+.day-Article hr {
+    padding-top: 0px;
+}
+
+.day-Article ul{
+    text-align: left;
+    padding-left: 1.5rem;
+}
+
+.day-Article p {
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+}
 
 .navBar {
-    background-color:dimgrey;
+    background-color: dimgrey;
     overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
 }
 
 .navBar a {
     text-decoration: none;
-    float: left;
+    display: inline-block; /* Use inline-block instead of float */
     text-align: center;
     padding: 14px 16px;
     font-size: 14px;
@@ -33,13 +76,20 @@ body {
     float: right;
 }
 
-.navBar a#logout:hover{
+.navBar a#logout:hover {
     background-color: red;
 }
 
+#selectedMonth {
+    margin-bottom: 10px;
+}
 
-table, th, td {
-    border: 1px solid black;
+#appointment-Info-Dialog {
+    position: fixed;
+    top: 50%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
     background-color: gray;
-  }
-  
+}
+

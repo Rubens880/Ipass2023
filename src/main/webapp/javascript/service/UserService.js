@@ -9,7 +9,7 @@ export class UserService {
         let formData = new FormData(document.querySelector("#loginForm"));
         let jsonRequestBody = {}
         formData.forEach((key, value) => jsonRequestBody[value] = key);
-         return fetch("http://localhost:8080/restservices/authentication", {method: "POST",
+         return fetch("/restservices/authentication", {method: "POST",
             headers: {
                 'Content-Type': 'application/json'},
             body: JSON.stringify(jsonRequestBody)})

@@ -7,7 +7,8 @@ export class AppointmentService {
         let jsonRequestBody = {}
         formData.forEach((key, value) => jsonRequestBody[value] = key);
         console.log(jsonRequestBody);
-        return fetch("http://localhost:8080/restservices/appointment", {
+        console.log("----");
+        return fetch("/restservices/appointment", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
@@ -16,8 +17,25 @@ export class AppointmentService {
             .then((response) => {
                 if (response.ok) {
                     return response;
-                } else throw "Something went wrong!"
+                } else return response;
             })
             .catch((error) => console.log(error)) ;
+    }
+    // Alle appointments wordt opgehaald via een get method.
+    loadAppointments() {
+        return fetch("/restservices/appointment", {
+            method: "GET",
+            headers: {
+                'Authorization': 'Bearer ' + window.localStorage.getItem("myJWT")
+            }
+        } )
+            .then((response) => {
+                if (response.ok) {
+                    console.log(response);
+                    return response;
+                } else throw "Something went wrong!"
+            })
+            .catch((error) => console.log(error));
+
     }
 }

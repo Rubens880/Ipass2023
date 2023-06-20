@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="nl" xmlns="http://www.w3.org/1999/html">
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="../css/homePage.css">
-        <script type="text/javascript" src="../javascript/homePage.js" defer></script>
+        <script type="module" src="../javascript/homePage.js" defer></script>
         <script type="text/javascript" src="../javascript/utils/logout.js" defer></script>
         <script type="text/javascript" src="../javascript/utils/pageSecurity.js"></script>
         <title>WebAgenda Home</title>
@@ -18,26 +18,48 @@
                 <a id="logout" href="../html/loginpage.html">Log uit</a>
             </div>
         </nav>
-        <div class="agenda">
-            <table id="calendar">
-                <thead>
-                  <tr>
-                    <th>Mon</th>
-                    <th>Tue</th>
-                    <th>Wed</th>
-                    <th>Thu</th>
-                    <th>Fri</th>
-                    <th>Sat</th>
-                    <th>Sun</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  
-                </tbody>
-              </table>
+    <main>
+        <select id="selectedMonth">
+            <option value="Januari">Januari</option>
+            <option value="Februari">Februari</option>
+            <option value="Maart">Maart</option>
+            <option value="April">April</option>
+            <option value="Mei">Mei</option>
+            <option value="Juni">Juni</option>
+            <option value="Juli">Juli</option>
+            <option value="Augustus">Augustus</option>
+            <option value="September">September</option>
+            <option value="Oktober">Oktober</option>
+            <option value="November">November</option>
+            <option value="December">December</option>
+        </select>
+        <select id="selectedYear">
+            <option value="2023">2023</option>
+            <option value="2024">2024</option>
+            <option value="2025">2025</option>
+        </select>
 
-        </div>
+        <div id="renderArticles" class="grid-container"></div>
 
+        <template id="day-Template">
+            <article class="grid-item day-Article">
+                <p id="date-Template">Maandag 1</p>
+                <hr color="black">
+                <ul id="appointmentList">
+                </ul>
+            </article>
+        </template>
+        <dialog id="appointment-Info-Dialog" style="display: none">
+            <h1>Afspraak Informatie</h1>
+            <p>Naam: <span id="dialog-Name">{Placeholder}</span></p>
+            <p>Locatie: <span id="dialog-Locatie">{Placeholder}</span></p>
+            <p>Descriptie: <span id="dialog-Descriptie">{Placeholder}</span></p>
+            <p>Datum: <span id="dialog-Datum">{Placeholder}</span></p>
+            <p>Begin Tijd: <span id="dialog-StartTime">{Placeholder}</span></p>
+            <p>Eind Tijd: <span id="dialog-EndTime">{Placeholder}</span></p>
+            <button type="button" id="dialog-CloseButton">Close</button>
+        </dialog>
+    </main>
 
     </body>
 

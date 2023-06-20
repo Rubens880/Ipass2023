@@ -1,6 +1,8 @@
 package nl.hu.ipass.agenda.domain;
 
+import javax.ws.rs.core.Response;
 import java.io.Serializable;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,8 +33,19 @@ public class Agenda implements Serializable {
         return shoppingLists;
     }
 
-    public void addAppointment(Appointment appointment) {
+    public Response addAppointment(Appointment appointment) {
+        String startTime = appointment.getStartTime();
+        String endTime = appointment.getEndTime();
+        if (!LocalTime.parse(startTime).isBefore(LocalTime.parse(endTime))
+                || appointment.getName().length() > 15
+                || appointment.getDescription().length() > 50) {
+            System.out.println(appointment);
+            return Response.status(Response.Status.CONFLICT).build();
+        }
+
+
         this.appointments.add(appointment);
+        return Response.ok().build();
     }
 
     public void addShoppingList(ShoppingList shoppingList) {
