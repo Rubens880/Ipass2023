@@ -36,10 +36,13 @@ public class Agenda implements Serializable {
     public Response addAppointment(Appointment appointment) {
         String startTime = appointment.getStartTime();
         String endTime = appointment.getEndTime();
-        if (!LocalTime.parse(startTime).isBefore(LocalTime.parse(endTime))) {
+        if (!LocalTime.parse(startTime).isBefore(LocalTime.parse(endTime))
+                || appointment.getName().length() > 15
+                || appointment.getDescription().length() > 50) {
             System.out.println(appointment);
             return Response.status(Response.Status.CONFLICT).build();
         }
+
 
         this.appointments.add(appointment);
         return Response.ok().build();
