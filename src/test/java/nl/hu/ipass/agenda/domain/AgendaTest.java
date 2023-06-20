@@ -37,5 +37,25 @@ class AgendaTest {
         assertEquals(2, agenda.getAppointments().size());
     }
 
+    @Test
+    @DisplayName("Voeg appointment toe met eindtijd voor begintijd")
+    public void appointmentTimeTestFalse() {
+        Appointment appointment = new Appointment("Test Appointment", null,"12:12","11:13","Test desc", "Tiel");
+        agenda.addAppointment(appointment);
+
+        assertEquals(0, agenda.getAppointments().size());
+    }
+
+    @Test
+    @DisplayName("Voeg appointment toe met begintijd voor eindtijd")
+    public void appointmentTimeTestGood() {
+        Appointment appointment = new Appointment("Test Appointment", null,"11:12","12:13","Test desc", "Tiel");
+        agenda.addAppointment(appointment);
+
+        assertEquals(1, agenda.getAppointments().size());
+    }
+
+
+
 
 }
