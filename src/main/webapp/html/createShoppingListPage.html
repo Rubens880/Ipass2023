@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/createShoppingListPage.css">
+    <script type="text/javascript" src="../javascript/utils/logout.js" defer></script>
+    <script type="text/javascript" src="../javascript/utils/pageSecurity.js"></script>
+    <script type="module" src="/javascript/shoppingList.js" defer></script>
+    <title>WebAgenda Home</title>
+</head>
+
+<body onload="checkIfLoggedIn()">
+<nav>
+    <div class="navBar">
+        <a href="../html/homepage.html">Home</a>
+        <a href="../html/createAppointmentPage.html">Maak afspraak</a>
+        <a id="active" href="../html/createShoppingListPage.html">Maak boodschappenlijstje</a>
+        <a id="logout" href="../html/loginPage.html">Log uit</a>
+    </div>
+</nav>
+<div class="shoppingListForm">
+    <form id="shoppingListForm">
+        <label>Product <input id="name-Input" type="text" name="name" placeholder="Product naam" required></label>
+        <label>Aantal <input id="amount-Input" type="text" name="amount" placeholder="Aantal" required></label>
+
+        <button type="button" id="addItem-FormButton">Voeg toe!</button>
+        <button type="button" id="clearShoppingList-Button">Clear</button>
+    </form>
+</div>
+<div class="shoppingList">
+    <ul id="shoppingList">
+
+
+    </ul>
+</div>
+
+
+
+</body>
+
+
+</html>

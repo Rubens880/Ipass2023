@@ -3,6 +3,8 @@ import { AppointmentService} from "./service/appointmentService.js";
 
 const appointmentService = new AppointmentService()
 
+let id = '';
+
 let appointments = [];
 //Haalt op hoeveel dagen in die maand zitten
 const daysInMonth = (year, month) => new Date(year, month, 0).getDate();
@@ -171,18 +173,61 @@ function renderAppointmentDialog() {
     console.log(JSON.parse(this.getAttribute("data-json")));
     const dialogInfo = JSON.parse(this.getAttribute("data-json"));
 
-    dialog.querySelector("#dialog-Name").innerHTML = dialogInfo.name;
-    dialog.querySelector("#dialog-Descriptie").innerHTML = dialogInfo.description;
-    dialog.querySelector("#dialog-Locatie").innerHTML = dialogInfo.location;
-    dialog.querySelector("#dialog-Datum").innerHTML = dialogInfo.date;
-    dialog.querySelector("#dialog-StartTime").innerHTML = dialogInfo.startTime;
-    dialog.querySelector("#dialog-EndTime").innerHTML = dialogInfo.endTime;
+    document.getElementById("dialog-id").textContent = dialogInfo.id;
+    document.getElementById("dialog-Name").value = dialogInfo.name;
+    document.getElementById("dialog-Descriptie").textContent = dialogInfo.description;
+    document.getElementById("dialog-Locatie").value = dialogInfo.location;
+    document.getElementById("dialog-Datum").value = dialogInfo.date;
+    document.getElementById("dialog-StartTime").value = dialogInfo.startTime;
+    document.getElementById("dialog-EndTime").value = dialogInfo.endTime;
+
+    id = dialogInfo.id;
+}
+
+//Update appointment
+function updateAppointment() {
+    console.log(id);
+
+    appointmentService.updateAppointment(id).then((response)=> {
+        if (response.ok) {
+            location.reload();
+        } else {
+            console.log("Something went wrong!")
+            window.alert("Something went wrong!")
+        }
+        }
+    )
+
+}
+
+//delete appointment
+function deleteAppointment() {
+    console.log(id);
+    appointmentService.deleteAppointment(id).then((response) => {
+        if (response.ok) {
+            location.reload();
+        } else {
+            console.log("Something went wrong!")
+            window.alert("Something went wrong!")
+        }
+    })
+
+}
+
+function downloadPDF() {
+    print();
 }
 
 load();
+
+
+
 
 
 //Eventlisteners
 document.querySelector("#selectedMonth").addEventListener("change", render);
 document.querySelector("#selectedYear").addEventListener("change", render);
 document.querySelector("#dialog-CloseButton").addEventListener("click", renderAppointmentDialog);
+document.querySelector("#dialog-Update-Dialog").addEventListener("click", updateAppointment);
+document.querySelector("#dialog-DeleteButton").addEventListener("click", deleteAppointment);
+document.querySelector("#download-PDF-button").addEventListener("click", downloadPDF);

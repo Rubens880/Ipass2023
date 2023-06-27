@@ -93,3 +93,32 @@ main {
     background-color: #D9D9D9;
 }
 
+#appointment-Info-Dialog label,input,textarea {
+    display: block;
+    margin-bottom: 10px;
+}
+
+@media print {
+    body {
+        background-color: white;
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-gap: 10px;
+        justify-items: center;
+    }
+
+    .day-Article {
+        width: 100px;
+        height: 200px;
+        page-break-inside: avoid;
+    }
+
+    .navBar {
+        display: none;
+    }
+}
+
+

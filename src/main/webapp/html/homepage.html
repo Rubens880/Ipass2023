@@ -13,8 +13,8 @@
             <div class="navBar">
                 <a id="active" href="../html/homepage.html">Home</a>
                 <a href="../html/createAppointmentPage.html">Maak afspraak</a>
-                <a href="../html/">Maak boodschappenlijstje</a>
-                <a>Download PDF</a>
+                <a href="../html/createShoppingListPage.html">Maak boodschappenlijstje</a>
+                <a id="download-PDF-button">Download PDF</a>
                 <a id="logout" href="../html/loginpage.html">Log uit</a>
             </div>
         </nav>
@@ -51,13 +51,19 @@
         </template>
         <dialog id="appointment-Info-Dialog" style="display: none">
             <h1>Afspraak Informatie</h1>
-            <p>Naam: <span id="dialog-Name">{Placeholder}</span></p>
-            <p>Locatie: <span id="dialog-Locatie">{Placeholder}</span></p>
-            <p>Descriptie: <span id="dialog-Descriptie">{Placeholder}</span></p>
-            <p>Datum: <span id="dialog-Datum">{Placeholder}</span></p>
-            <p>Begin Tijd: <span id="dialog-StartTime">{Placeholder}</span></p>
-            <p>Eind Tijd: <span id="dialog-EndTime">{Placeholder}</span></p>
+            <p>Id: <span id="dialog-id">{placeholder}</span></p>
+            <form id="appointment-Dialog-Form">
+                    <label>Titel <input id="dialog-Name" type="text" name="title" placeholder="Max 15 karakters"></label>
+                    <label>Descriptie <textarea id="dialog-Descriptie" type="textarea" name="description" placeholder="Max 50 karakters"></textarea> </label>
+                    <label>Locatie <input id="dialog-Locatie" type="text" name="location"></label>
+                    <label>Datum: <input id="dialog-Datum" type="date" name="date"></label>
+                    <label>StartTijd: <input id="dialog-StartTime" type="time" name="startTime"></label>
+                    <label>EindTijd: <input  id="dialog-EndTime" type="time" name="endTime"></label>
+            </form>
+
+            <button type="button" id="dialog-Update-Dialog">Update</button>
             <button type="button" id="dialog-CloseButton">Close</button>
+            <button type="button" id="dialog-DeleteButton">Delete</button>
         </dialog>
     </main>
 

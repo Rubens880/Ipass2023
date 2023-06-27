@@ -1,30 +1,35 @@
 package nl.hu.ipass.agenda.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 public class ShoppingList implements Serializable {
-    private String name;
-    private Date date;
-    private List<ShoppingsItem> Items;
+    private List<ShoppingsItem> items = new ArrayList<>();
 
-    public ShoppingList( String name, Date date, List<ShoppingsItem> shoppingsItems) {
-        this.name = name;
-        this.date = date;
-        this.Items = shoppingsItems;
+    public ShoppingList() {
+
     }
 
-    public String getName() {
-        return name;
+    public ShoppingList(List<ShoppingsItem> shoppingsItems) {
+        this.items = shoppingsItems;
     }
 
-    public Date getDate() {
-        return date;
+    public void setItems(List<ShoppingsItem> shoppingsItems) {
+        this.items = items;
+    }
+
+    public void clearShoppingList() {
+        items = new ArrayList<>();
     }
 
     public List<ShoppingsItem> getItems() {
-        return Items;
+        return items;
     }
+    public void addItem(ShoppingsItem shoppingsItem) {
+        items.add(shoppingsItem);
+    }
+
 
 }

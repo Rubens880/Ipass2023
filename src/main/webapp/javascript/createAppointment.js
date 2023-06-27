@@ -8,7 +8,6 @@ function createAppointment() {
     appointmentService.createAppointment()
         .then((response) => {
             if (response.ok) {
-                console.log(response.json())
                 window.alert("Afspraak succesvol opgeslagen!");
                 let allInputs = document.querySelectorAll("input");
                 allInputs.forEach((input) => {input.value = '';})
