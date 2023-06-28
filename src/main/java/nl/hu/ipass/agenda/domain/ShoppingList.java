@@ -20,6 +20,7 @@ public class ShoppingList implements Serializable {
         this.items = items;
     }
 
+    //haalt alle items uit de shoppinglist
     public void clearShoppingList() {
         items = new ArrayList<>();
     }

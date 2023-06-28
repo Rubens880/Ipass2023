@@ -105,13 +105,13 @@ main {
 
     .grid-container {
         display: grid;
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         grid-gap: 10px;
         justify-items: center;
     }
 
     .day-Article {
-        width: 100px;
+        width: 150px;
         height: 200px;
         page-break-inside: avoid;
     }

@@ -11,6 +11,7 @@ import javax.ws.rs.core.Response;
 @Path("shoppinglist")
 public class ShoppingListResource {
 
+    //haal alle items uit shoppinglist op
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @RolesAllowed("user")
@@ -19,6 +20,7 @@ public class ShoppingListResource {
         return Response.ok(Agenda.getAgenda().getShoppingList()).build();
     }
 
+    //addShoppingList item
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
@@ -36,6 +38,7 @@ public class ShoppingListResource {
 
     }
 
+    //Verwijderd alle shoppingslist items
     @PATCH
     @RolesAllowed("user")
     public Response clearShoppingList() {

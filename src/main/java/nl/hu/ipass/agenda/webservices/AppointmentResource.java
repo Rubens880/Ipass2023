@@ -68,7 +68,7 @@ public class AppointmentResource {
 
     }
 
-
+    //update een appointment
     @PUT
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
@@ -99,7 +99,7 @@ public class AppointmentResource {
 
     }
 
-
+    //verwijderd een appointment
     @DELETE
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
